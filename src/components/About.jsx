@@ -5,7 +5,7 @@ const About = () => {
         <div className="about-container">
             <div className="flex-about">                
                 <div className="about-img">
-                    <Image src='/images/hero-devices.svg' className="profile-img" width={100} height={80} alt="photo responsive" />
+                    <Image src='/images/hero-devices.svg' className="profile-img" width={105} height={81} alt="photo responsive" />
                 </div>
                <h2>A propos de Moi</h2>
                 <div className="about-text"> 

@@ -27,7 +27,7 @@ const Hero = () => {
                         <i className="fa-brands fa-github"></i>
                     </a>
                     <a
-                        href="https://www.linkedin.com/in/mamadou-sadjo-diallo-6b581418b/"
+                        href="hhttps://www.linkedin.com/in/mamadu-sadjo-djal%C3%B3-6b581418b/"
                         aria-label="LinkedIn"
                         target="_blank"
                         rel="noopener noreferrer"

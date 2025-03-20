@@ -5,9 +5,9 @@ const Hero = () => {
         <div className="hero-container">
             <Image src='/images/profile.jpg' className="profile-img" width={300} height={300} alt="photo personel de sadjo" />
             <div className="hero-text">
-                <h1>Bonjour, je suis Sadjo 👋</h1>
+                <h1> Bonjour, je suis Sadjo 👋 </h1>
                 <p>
-                Je me nomme Diallo Mamadou Sadjo, je suis un développeur web frontend basé à Conakry, en Guinée. Je me spécialise dans la création et la conception de sites et d'applications web, et de tout ce qui va avec.
+                Je me nomme Mamadu Sadjo Djalo, je suis un développeur web frontend basé à lisbonne, au portugal. Je suis spécialisé dans la création et la conception de sites et d'applications web modernes et réactifs..
                 </p>
                 <div className="social-icons">
                     <a

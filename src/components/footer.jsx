@@ -5,7 +5,7 @@ const Footer = () => {
             <div className="footer-container">
                 <p>
                     &copy; {new Date().getFullYear()} SadjoWora Portofolio
-                    <small>&nbsp; <strong>Tel: </strong> 620027539 </small>
+                    <small>&nbsp; <strong>Tel: </strong> +351 920 28 72 14 </small>
                     <small>&nbsp; <strong>Email: </strong> geniewora@gmail.com </small>
                 </p>
                 <div className="social_icons">

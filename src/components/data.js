@@ -9,11 +9,11 @@ export const projectData = [
 	},
 	{
 		id: 2,
-		title: 'Photou',
-		name: 'Photou',
+		title: 'No-YAAWi',
+		name: 'No-YAAWi',
 		description:
-			'Photou est une plateforme relationnelle qui permet à ses utilisateurs de partager entre eux des photos de leurs régions, pays. Photos qui sont téléchargeable gratuitement',
-		gitHubLink: 'https://github.com/Sadjowora/Noullal',
+			'No YAAWi est une platforme spécialisée dans les expéditions de colis et la légalisation de documents administratifs. Avec un service de livraison adapté à vos besoins,',
+		gitHubLink: 'https://www.noyaawi.org/',
 	},
 	{
 		id: 3,
@@ -21,7 +21,7 @@ export const projectData = [
 		name: 'E-djandai',
 		description:
 			"Aapplication web d'entreprise type (Saas). qui permêt la gestion de la scolarité et du temps dans un etablissement, avec tous les outils qui vont avec(gestion notes, examents, cours, edition des attestations)..",
-		gitHubLink: 'https://github.com/olawanlejoel/random-quote-generator',
+		gitHubLink: 'https://edjandai.web.app/',
 	},
 	{
 		id: 4,
@@ -42,7 +42,7 @@ export const projectData = [
 	{
 		id: 6,
 		title: 'Codenakry',
-		name: 'Codenakry',
+		name: 'CodeNakry',
 		description:
 			"Site destiner aux développeurs, programmeurs et tous ceux dans mon de la tech en guinée. Publication d'articles, de conseils, de projets destiner aux developpeurs.",
 		gitHubLink: 'https://github.com/olawanlejoel/TwitterUI-clone',

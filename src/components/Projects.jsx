@@ -3,7 +3,7 @@ import { projectData } from './data.js';
 const Projects = () => {
     return (
         <div className="projects-container">
-            <h2>Projets</h2>
+            <h2> Projets </h2>
             <div className="projects-grid">
                 {projectData && projectData.map((project) => (
                     <div className={"project-card "+project.name} key={project.id}>
@@ -18,9 +18,13 @@ const Projects = () => {
                             </div>
                         </div>
                         <div className="project-body">
-                          <img src={"/images/"+project.name+".png"} className="card-img-top" alt="..." width="510px" />
+                          <img src={project.image} className="card-img-top" alt="..." width="500px" />
                           <h2>{project.title}</h2>
                           <p>{project.description}</p>
+                          <div className='project-technologies'>
+                            <strong> Technologies: </strong>
+                            <p> {project.technos} </p>    
+                          </div>
                         </div>
                     </div>
                 ))

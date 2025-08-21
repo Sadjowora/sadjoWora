@@ -4,7 +4,7 @@ const Footer = () => {
             <hr />
             <div className="footer-container">
                 <p>
-                    &copy; {new Date().getFullYear()} SadjoWora Portofolio
+                    &copy; {new Date().getFullYear()} Mamadu Sadjo Djalo. Tous droits réservés.
                     <small>&nbsp; <strong>Tel: </strong> +351 920 28 72 14 </small>
                     <small>&nbsp; <strong>Email: </strong> geniewora@gmail.com </small>
                 </p>

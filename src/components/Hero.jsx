@@ -7,11 +7,11 @@ const Hero = () => {
             <div className="hero-text">
                 <h1> Bonjour, je suis Sadjo 👋 </h1>
                 <p>
-                Je me nomme Mamadu Sadjo Djalo, je suis un développeur web frontend basé à lisbonne, au portugal. Je suis spécialisé dans la création et la conception de sites et d'applications web modernes et réactifs..
+                Je me nomme Mamadu Sadjo Djalo, je suis un développeur web Reactjs / NextJs / React Native. J'aime travailler à la fois sur le front-end et le back-end des applications, et je suis toujours à la recherche de moyens d'optimiser les performances, d'améliorer l'expérience utilisateur et d'assurer le plus haut niveau de qualité de code. 
                 </p>
                 <div className="social-icons">
                     <a
-                        href="https://twitter.com/@SadjoWora"
+                        href="https://twitter.com/@SabdjoWora"
                         aria-label="Twitter"
                         target="_blank"
                         rel="noopener noreferrer"

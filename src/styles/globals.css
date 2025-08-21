@@ -50,7 +50,7 @@ li {
 .nav-container .logo:hover { 
   text-decoration-color: #FFCC1A;
   text-decoration: underline; 
-  text-decoration-style: wavy;  
+  text-decoration-style:dotted;  
   text-underline-offset: 0.4em; 
 
 }
@@ -197,7 +197,7 @@ hr {
 
 .hero-container .social-icons a {
   color: #9B9C9D;
-  font-size: 1.8rem;
+  font-size: 2rem;
   transition: all 0.5s ease-in-out;
 }
 
@@ -383,6 +383,12 @@ hr {
   border-bottom: 1px solid dimgray;
   padding: 11px;
 }
+.project-body .project-technologies {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 10px;
+}
 .project-card .project-body { padding:10px;}
 .project-card .folder-icon {
   font-size: 3em;
@@ -398,6 +404,7 @@ hr {
   margin-right: 5px;
   cursor: pointer;
   transition: all .5s ease;
+  color:#E34F26
 }
 
 .project-card .small-icons a:hover {

@@ -1,8 +1,9 @@
-// components/AboutSection.tsx
-// Portfolio Sadjo Wora — Section À propos + Timeline
-// Stack : Next.js 14 + Tailwind CSS
+// components/AboutSection.jsx
+// Portfolio Sadjo Wora — À propos avec animations Framer Motion
 
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "../hooks/useInView";
 
 const TIMELINE = [
   {
@@ -47,7 +48,7 @@ const TIMELINE = [
   },
 ];
 
-const TYPE_STYLES: Record<string, { dot: string; badge: string; label: string }> = {
+const TYPE_STYLES = {
   work:      { dot: "bg-violet-500", badge: "bg-violet-500/10 text-violet-400 border-violet-500/20", label: "Travail" },
   project:   { dot: "bg-blue-500",   badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",       label: "Projet" },
   education: { dot: "bg-emerald-500", badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20", label: "Formation" },
@@ -61,35 +62,42 @@ const STATS = [
 ];
 
 export default function AboutSection() {
+  const { ref, inView } = useInView();
+  const { ref: timelineRef, inView: timelineInView } = useInView();
+
   return (
     <section id="about" className="bg-[#0a0a0f] py-24 px-6">
       <div className="max-w-6xl mx-auto">
 
-        {/* ── En-tête ── */}
-        <div className="mb-16">
+        {/* En-tête */}
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
           <p className="text-violet-400 text-sm font-medium tracking-widest uppercase mb-3">
             Qui suis-je
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             À propos de moi
           </h2>
-        </div>
+        </motion.div>
 
-        {/* ── Bloc principal : photo + texte ── */}
+        {/* Bloc principal */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
 
           {/* Photo + stats */}
-          <div className="flex flex-col gap-6">
-            {/* Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex flex-col gap-6"
+          >
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-purple-900/20 z-10" />
-              <Image
-                src="/images/profile.jpg"
-                alt="Mamadu Sadjo Djalo"
-                fill
-                className="object-cover"
-              />
-              {/* Badge flottant */}
+              <Image src="/images/profile.jpg" alt="Mamadu Sadjo Djalo" fill className="object-cover" />
               <div className="absolute bottom-4 left-4 z-20 bg-[#0f0f18]/90 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
@@ -101,22 +109,29 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-2 gap-3">
-              {STATS.map((stat) => (
-                <div
+              {STATS.map((stat, i) => (
+                <motion.div
                   key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                   className="bg-[#0f0f18] border border-white/8 rounded-xl px-4 py-4 text-center hover:border-violet-500/20 transition-all duration-300"
                 >
                   <p className="text-2xl font-bold text-white mb-1">{stat.value}</p>
                   <p className="text-gray-500 text-xs">{stat.label}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Texte */}
-          <div className="flex flex-col gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-col gap-6"
+          >
             <div className="flex flex-col gap-4 text-gray-400 text-base leading-relaxed">
               <p>
                 Je suis <span className="text-white font-semibold">Mamadu Sadjo Djalo</span>, développeur
@@ -125,82 +140,83 @@ export default function AboutSection() {
                 jusqu'au produit en production.
               </p>
               <p>
-                Ce qui me distingue ? Je ne suis pas seulement développeur — je suis aussi
-                <span className="text-white font-semibold"> entrepreneur</span>. Je comprends les enjeux
+                Ce qui me distingue ? Je ne suis pas seulement développeur — je suis aussi{" "}
+                <span className="text-white font-semibold">entrepreneur</span>. Je comprends les enjeux
                 business derrière chaque ligne de code. J'ai fondé{" "}
-                <a href="https://codenakry.web.app" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 transition-colors">
+                <a href="https://codenakry.web.app" target="_blank" rel="noopener noreferrer"
+                  className="text-violet-400 hover:text-violet-300 transition-colors">
                   CodeNakry
                 </a>
                 , une communauté tech guinéenne, et je développe activement plusieurs produits SaaS
                 ciblant le marché ouest-africain.
               </p>
               <p>
-                Mon approche : comprendre le <span className="text-white font-semibold">problème</span>{" "}
-                avant de choisir la solution technique. Livrer vite, itérer, améliorer.
+                Mon approche : comprendre le{" "}
+                <span className="text-white font-semibold">problème</span> avant de choisir la solution
+                technique. Livrer vite, itérer, améliorer.
               </p>
             </div>
 
-            {/* Tags identitaires */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {[
-                "🇬🇳 Guinée Conakry",
-                "🚀 Builder SaaS",
-                "📱 React Native",
-                "🌍 Afrique de l'Ouest",
-                "💡 Pensée produit",
-                "✍️ Blogger tech",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 text-sm rounded-lg bg-white/5 border border-white/8 text-gray-300 hover:border-violet-500/30 hover:text-white transition-all duration-200"
-                >
+              {["🇬🇳 Guinée Conakry", "🚀 Builder SaaS", "📱 React Native", "🌍 Afrique de l'Ouest", "💡 Pensée produit", "✍️ Blogger tech"].map((tag) => (
+                <span key={tag}
+                  className="px-3 py-1.5 text-sm rounded-lg bg-white/5 border border-white/8 text-gray-300 hover:border-violet-500/30 hover:text-white transition-all duration-200">
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Actions */}
             <div className="flex flex-wrap gap-3 pt-2">
-              <a
+              <motion.a
                 href="https://drive.google.com/file/d/1G5kaG8n_cWXiG22vcU6_B5U3o6K8MenN/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-violet-500/30"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold transition-colors shadow-lg shadow-violet-500/20"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                 </svg>
                 Télécharger mon CV
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="mailto:geniewora@gmail.com"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 hover:border-violet-500/40 bg-white/5 hover:bg-white/10 text-white text-sm font-medium transition-all"
               >
                 Me contacter
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* ── Timeline ── */}
-        <div>
-          <h3 className="text-xl font-bold text-white mb-2">Mon parcours</h3>
-          <p className="text-gray-500 text-sm mb-10">De l'apprentissage autodidacte aux produits SaaS</p>
+        {/* Timeline */}
+        <div ref={timelineRef}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={timelineInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl font-bold text-white mb-2">Mon parcours</h3>
+            <p className="text-gray-500 text-sm mb-10">De l'apprentissage autodidacte aux produits SaaS</p>
+          </motion.div>
 
           <div className="relative">
-            {/* Ligne verticale */}
             <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-violet-500/50 via-white/10 to-transparent" />
-
             <div className="flex flex-col gap-0">
               {TIMELINE.map((item, i) => {
                 const s = TYPE_STYLES[item.type];
                 return (
-                  <div key={i} className="relative flex gap-8 pl-12 pb-10 group">
-
-                    {/* Point sur la ligne */}
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={timelineInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
+                    className="relative flex gap-8 pl-12 pb-10 group"
+                  >
                     <div className={`absolute left-[13px] top-1.5 w-2.5 h-2.5 rounded-full ${s.dot} ring-4 ring-[#0a0a0f] z-10 group-hover:scale-125 transition-transform duration-200`} />
-
-                    {/* Contenu */}
                     <div className="flex-1 bg-[#0f0f18] border border-white/8 rounded-2xl p-5 hover:border-white/15 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-black/20">
                       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                         <div>
@@ -222,13 +238,12 @@ export default function AboutSection() {
                       </div>
                       <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

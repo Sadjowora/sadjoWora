@@ -1,6 +1,8 @@
-// components/SkillsSection.tsx
-// Portfolio Sadjo Wora — Section Compétences
-// Stack : Next.js 14 + Tailwind CSS
+// components/SkillsSection.jsx
+// Portfolio Sadjo Wora — Compétences avec animations Framer Motion
+
+import { motion } from "framer-motion";
+import { useInView } from "../hooks/useInView";
 
 const SKILL_GROUPS = [
   {
@@ -74,7 +76,7 @@ const SOFT_SKILLS = [
   { label: "Curiosité", desc: "Veille tech active, toujours en apprentissage" },
 ];
 
-const COLOR_MAP: Record<string, { bar: string; bg: string; border: string; icon: string; text: string }> = {
+const COLOR_MAP = {
   violet:  { bar: "bg-violet-500",  bg: "bg-violet-500/10",  border: "border-violet-500/20",  icon: "text-violet-400",  text: "text-violet-300" },
   blue:    { bar: "bg-blue-500",    bg: "bg-blue-500/10",    border: "border-blue-500/20",    icon: "text-blue-400",    text: "text-blue-300" },
   emerald: { bar: "bg-emerald-500", bg: "bg-emerald-500/10", border: "border-emerald-500/20", icon: "text-emerald-400", text: "text-emerald-300" },
@@ -82,12 +84,19 @@ const COLOR_MAP: Record<string, { bar: string; bg: string; border: string; icon:
 };
 
 export default function SkillsSection() {
+  const { ref, inView } = useInView();
+
   return (
-    <section id="skills" className="bg-[#080810] py-24 px-6">
+    <section id="skills" className="bg-[#080810] py-24 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
 
-        {/* ── En-tête ── */}
-        <div className="mb-16">
+        {/* En-tête */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
           <p className="text-violet-400 text-sm font-medium tracking-widest uppercase mb-3">
             Mon expertise
           </p>
@@ -97,18 +106,21 @@ export default function SkillsSection() {
           <p className="text-gray-400 max-w-xl text-base leading-relaxed">
             Une stack moderne orientée produit, du prototype au déploiement en production.
           </p>
-        </div>
+        </motion.div>
 
-        {/* ── Grille des groupes ── */}
+        {/* Grille groupes */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
-          {SKILL_GROUPS.map((group) => {
+          {SKILL_GROUPS.map((group, i) => {
             const c = COLOR_MAP[group.color];
             return (
-              <div
+              <motion.div
                 key={group.category}
-                className={`bg-[#0f0f18] border border-white/8 rounded-2xl p-6 flex flex-col gap-5 hover:border-white/15 transition-all duration-300`}
+                initial={{ opacity: 0, y: 40 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
+                whileHover={{ y: -4 }}
+                className="bg-[#0f0f18] border border-white/8 rounded-2xl p-6 flex flex-col gap-5 hover:border-white/15 transition-all duration-300"
               >
-                {/* Header groupe */}
                 <div className="flex items-center gap-3">
                   <div className={`w-9 h-9 rounded-xl ${c.bg} border ${c.border} flex items-center justify-center ${c.icon}`}>
                     {group.icon}
@@ -116,38 +128,39 @@ export default function SkillsSection() {
                   <h3 className={`text-sm font-semibold ${c.text}`}>{group.category}</h3>
                 </div>
 
-                {/* Skills avec barres */}
                 <div className="flex flex-col gap-4">
-                  {group.skills.map((skill) => (
+                  {group.skills.map((skill, j) => (
                     <div key={skill.name} className="flex flex-col gap-1.5">
                       <div className="flex items-center justify-between">
                         <span className="text-gray-300 text-xs font-medium">{skill.name}</span>
                         <span className="text-gray-600 text-xs">{skill.level}%</span>
                       </div>
-                      {/* Barre de progression */}
                       <div className="h-1.5 w-full rounded-full bg-white/5 overflow-hidden">
-                        <div
+                        <motion.div
                           className={`h-full rounded-full ${c.bar} opacity-80`}
-                          style={{ width: `${skill.level}%` }}
+                          initial={{ width: 0 }}
+                          animate={inView ? { width: `${skill.level}%` } : {}}
+                          transition={{ duration: 0.8, delay: 0.4 + i * 0.1 + j * 0.05, ease: "easeOut" }}
                         />
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* ── Soft skills ── */}
+        {/* Soft skills */}
         <div className="border-t border-white/8 pt-12">
-          <h3 className="text-lg font-semibold text-white mb-6">
-            Au-delà du code
-          </h3>
+          <h3 className="text-lg font-semibold text-white mb-6">Au-delà du code</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SOFT_SKILLS.map((s) => (
-              <div
+            {SOFT_SKILLS.map((s, i) => (
+              <motion.div
                 key={s.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                 className="flex items-start gap-3 p-4 rounded-xl bg-[#0f0f18] border border-white/8 hover:border-violet-500/20 transition-all duration-300 group"
               >
                 <div className="mt-0.5 w-6 h-6 rounded-lg bg-violet-500/15 border border-violet-500/20 flex items-center justify-center shrink-0 group-hover:bg-violet-500/25 transition-colors">
@@ -157,13 +170,18 @@ export default function SkillsSection() {
                   <p className="text-white text-sm font-semibold">{s.label}</p>
                   <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{s.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        {/* ── Bannière apprentissage continu ── */}
-        <div className="mt-10 p-6 rounded-2xl bg-gradient-to-r from-violet-500/10 to-purple-500/5 border border-violet-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        {/* Bannière apprentissage */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.9 }}
+          className="mt-10 p-6 rounded-2xl bg-gradient-to-r from-violet-500/10 to-purple-500/5 border border-violet-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        >
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-violet-400 shrink-0">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -173,7 +191,8 @@ export default function SkillsSection() {
             <div>
               <p className="text-white text-sm font-semibold">Toujours en apprentissage</p>
               <p className="text-gray-400 text-xs mt-0.5">
-                Actuellement : <span className="text-violet-300 font-medium">Docker · CI/CD · Stripe API · PayDunya</span>
+                Actuellement :{" "}
+                <span className="text-violet-300 font-medium">Docker · CI/CD · Stripe API · PayDunya</span>
               </p>
             </div>
           </div>
@@ -188,8 +207,7 @@ export default function SkillsSection() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );

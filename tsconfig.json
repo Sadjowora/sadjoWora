@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "tailwind.config.js", "postcss.config.js"  ],
+, "tailwind.config.js", "postcss.config.js", "src/components/HeroSection.jsx", "src/components/AboutSection.jsx", "src/components/SkillsSection.jsx", "src/components/ProjectsSection.jsx", "src/components/ContactSection.jsx"  ],
   "exclude": [
     "node_modules"
   ]

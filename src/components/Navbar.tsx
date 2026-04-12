@@ -67,7 +67,7 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
             className="flex items-center gap-2 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:scale-110 transition-transform duration-200">
+            <div className="w-8 h-8 rounded-lg bg-linear-to-br from-violet-500 to-purple-700 flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:scale-110 transition-transform duration-200">
               <span className="text-white font-bold text-sm">S</span>
             </div>
             <span className="text-white font-semibold text-sm tracking-wide">
@@ -96,8 +96,12 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* ── Actions desktop ── */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* ── Actions desktop ── */} 
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/8 text-xs text-gray-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              UTC+1 · Lisbonne
+            </div>
+          <div className="hidden md:flex items-center gap-4">
             {/* Bouton CV */}
             <a
               href="https://drive.google.com/file/d/1G5kaG8n_cWXiG22vcU6_B5U3o6K8MenN/view?usp=drive_link"

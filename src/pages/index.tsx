@@ -22,7 +22,7 @@ const Home = () => {
         <meta name="author" content="Mamadu Sadjo Djalo" />
         <meta
           name="keywords"
-          content="développeur web Guinée, React, Next.js, React Native, Supabase, SaaS Afrique, freelance Conakry, Sadjo Djalo"
+          content="développeur web Guinée, React, Next.js, React Native, Supabase, SaaS Afrique, freelance Conakry, Sadjo Djalo, Lisbonne, portugal"
         />
 
         {/* ── Open Graph (LinkedIn, Facebook, WhatsApp) ── */}

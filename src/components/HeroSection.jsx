@@ -38,8 +38,8 @@ export default function HeroSection() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-violet-600/20 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-purple-500/15 blur-[100px]" />
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-violet-600/20 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-purple-500/15 blur-[100px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -70,11 +70,11 @@ export default function HeroSection() {
             custom={1}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
           >
-            Je construis des{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300">
-              produits digitaux
-            </span>{" "}
-            qui fonctionnent en Afrique
+          Je construis des{" "}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-400 to-purple-300">
+            produits digitaux
+          </span>{" "}
+          pour marchés émergents — et au-delà
           </motion.h1>
 
           {/* Sous-titre */}
@@ -87,8 +87,8 @@ export default function HeroSection() {
           >
             Développeur{" "}
             <span className="text-white font-medium">React / Next.js / React Native</span>{" "}
-            basé en Guinée. Je conçois des applications web et mobile pensées pour les
-            marchés ouest-africains — du MVP jusqu'au SaaS.
+          basé au Portugal 🇵🇹. Je conçois des applications
+          web et mobile pour startups, PME et institutions — du MVP jusqu'au SaaS.
           </motion.p>
 
           {/* Stack pills */}
@@ -174,7 +174,7 @@ export default function HeroSection() {
 
           {/* Photo */}
           <div className="relative w-64 h-64 lg:w-72 lg:h-72">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-800 rotate-3" />
+            <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-violet-600 to-purple-800 rotate-3" />
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-violet-500/30">
               <Image
                 src="/images/profile.jpg"
@@ -208,10 +208,9 @@ export default function HeroSection() {
             className="absolute -top-4 -right-4 lg:-right-8 bg-[#13131a] border border-white/10 rounded-xl px-4 py-3 shadow-xl backdrop-blur-sm"
           >
             <div className="flex items-center gap-2">
-              <span className="text-base">🇬🇳</span>
               <div>
-                <p className="text-xs text-white font-medium"> Lisbonne, Portugal </p>
-                <p className="text-xs text-gray-500">Guinée</p>
+                <p className="text-xs text-white font-medium">📍 Lisbonne, Portugal</p> 
+                <p className="text-xs text-gray-500"> 🇬🇳 Guinée</p>
               </div>
             </div>
           </motion.div>
@@ -226,7 +225,7 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600"
       >
         <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-gray-600 to-transparent animate-pulse" />
+        <div className="w-px h-8 bg-linear-to-b from-gray-600 to-transparent animate-pulse" />
       </motion.div>
     </section>
   );

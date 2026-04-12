@@ -345,7 +345,7 @@ export default function ContactSection() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-center sm:items-start gap-1">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-md bg-linear-to-br from-violet-500 to-purple-700 flex items-center justify-center">
                 <span className="text-white font-bold text-xs">S</span>
               </div>
               <span className="text-white font-semibold text-sm">

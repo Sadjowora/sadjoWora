@@ -58,9 +58,10 @@ const Home = () => {
           content="https://sadjowora.vercel.app/images/profile.jpg"
         />
 
-        {/* ── Favicon ── */}
-        <link rel="icon" href="/favicon.jpeg" />
-        <link rel="apple-touch-icon" href="/images/profile.jpg" />
+        {/* ── Favicon ── */}{/* Favicon */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon.ico" />
+         <link rel="apple-touch-icon" href="/favicon.svg" />
 
         {/* ── Canonical ── */}
         <link rel="canonical" href="https://sadjowora.vercel.app" />
